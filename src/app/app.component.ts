@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'applis';
+  events: string[] = [];
+  opened: boolean;
+  shouldRun = true;
 }
-
