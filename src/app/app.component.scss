@@ -1,7 +1,20 @@
 .remaining-space{
     flex: 1 1 auto;   
 }
+
 .mat-sidenav{
     width: 200px;
     background-color: #f9d6e6ab;
+    color: white;
+}
+.example-container{
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+}
+.test{
+    background-color:antiquewhite ;
+    height: 300px;
 }
