@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -13,7 +13,8 @@ import { MatGridListModule} from '@angular/material/grid-list';
 import { OeuvresComponent } from './page/oeuvres/oeuvres.component';
 import { TypesComponent } from './page/types/types.component';
 import { LoginComponent } from './page/login/login.component';
-
+import { JwtInterceptor } from './class/jwt-interceptor';
+import { ErrorInterceptor } from './class/error-interceptor';
 
 
 const appRoutes: Routes = [
@@ -51,7 +52,10 @@ const appRoutes: Routes = [
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes)
     ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
