@@ -1,24 +1,58 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<mat-sidenav-container class="example-container" >
-    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-      <mat-toolbar color="accent" role="heading">
-        <span>Menu</span>
-        <span class="remaining-space"></span>
-        <button mat-button (click)="sidenav.toggle()"><mat-icon>clear</mat-icon></button>
-      </mat-toolbar>
-    </mat-sidenav>
-  
-    <mat-sidenav-content>
-      <mat-toolbar color="accent" role="heading">
-        <button mat-button (click)="sidenav.toggle()"><mat-icon>view_headline</mat-icon></button>
-        <span>{{ title }}</span>
-        <span class="remaining-space"></span>
-        <span>Whouaahh</span>
-      </mat-toolbar>
-       <div class="container-fluid test"></div>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <mat-toolbar color="accent" role="heading">
+      <span>Menu</span>
+      <span class="remaining-space"></span>
+      <button mat-button (click)="sidenav.close()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </mat-toolbar>
+    <nav>
+        <mat-nav-list>
+          <a routerLink="/oeuvres" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+            <mat-icon matListIcon>view_list</mat-icon>
+            <span>Oeuvres list</span>
+          </a>
+          <a routerLink="/types" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+            <mat-icon matListIcon>view_list</mat-icon>
+            <span>Types list</span>
+          </a>
+        </mat-nav-list>
+      </nav>
+    <!--<div>
+      <button class="btnmenu" mat-button [matMenuTriggerFor]="menu">Menu</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Page1</button>
+        <button mat-menu-item>Page2</button>
+      </mat-menu>
+    </div>-->
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="accent" role="heading">
+        <button mat-button (click)="sidenav.toggle()">
+        <mat-icon>view_headline</mat-icon>
+      </button>
+      <span>{{ title }}</span>
+      <span class="remaining-space"></span>
+      <span>Whouaahh</span>
+    </mat-toolbar>
+    <div class="container-fluid test">
+        <router-outlet></router-outlet> 
+    </div>
+    
+    
+        <mat-grid-list cols="4" rowHeight="100px">
+            <mat-grid-tile
+                *ngFor="let tile of tiles"
+                [colspan]="tile.cols"
+                [rowspan]="tile.rows"
+                [style.background]="tile.color">
+              {{tile.text}}
+            </mat-grid-tile>
+          </mat-grid-list>
+    
+
+    
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
-
