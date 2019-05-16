@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule, MatButtonModule, MatToolbarModule, MatSidenavModule,
-         MatInputModule, MatAutocompleteModule, MatListModule, MatMenuModule, MatCardModule } from '@angular/material';
+         MatInputModule, MatAutocompleteModule, MatListModule, MatMenuModule,
+         MatCardModule, MatFormFieldModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatGridListModule} from '@angular/material/grid-list';
 import { OeuvresComponent } from './page/oeuvres/oeuvres.component';
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule,
@@ -41,6 +43,7 @@ const appRoutes: Routes = [
     MatListModule,
     MatMenuModule,
     MatCardModule,
+    MatFormFieldModule,
     MatGridListModule,
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes)
