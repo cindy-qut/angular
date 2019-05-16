@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { MatGridListModule} from '@angular/material/grid-list';
 import { OeuvresComponent } from './page/oeuvres/oeuvres.component';
 import { TypesComponent } from './page/types/types.component';
 import { LoginComponent } from './page/login/login.component';
+
 
 
 const appRoutes: Routes = [
@@ -32,6 +34,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatIconModule,

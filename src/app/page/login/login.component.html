@@ -1,29 +1,27 @@
 <div class="container-fluid">
-<div fxLayout="row" fxLayoutAlign="center center" style="height: calc(100vh - 54px);">
-  <mat-card class="col-12 col-sm-8 col-md-6 col-lg-4 ">
-  <mat-card-title class="text-center">Se connecter</mat-card-title>
-  <mat-card-content>
-    <form class="form-content" [formGroup]="loginForm">
-      <mat-form-field>
-        <input matInput 
-          placeholder="username" 
-          formControlName="username" 
-          autocomplete="off" 
-          required/>
-      </mat-form-field>
-      <mat-form-field>
-          <input matInput
-           type="password"
-           placeholder="password" 
-           formControlName="password" 
-           autocomplete="off" 
-           required/>
-        </mat-form-field>
-        <button class="m-3" mat-flat-button
-        (click)="login()"
-        color="accent">Envoyer</button>
-    </form>
-  </mat-card-content>
-</mat-card>
-</div>
+  <div fxLayout="row" fxLayoutAlign="center center" style="height: calc(100vh - 54px);">
+    <mat-card class="col-12 col-sm-8 col-md-6 col-lg-4 ">
+      <mat-card-title class="text-center">Se connecter</mat-card-title>
+      <mat-card-content>
+        <form class="form-content" [formGroup]="loginForm">
+          <mat-form-field>
+            <input matInput 
+            placeholder="username" 
+            formControlName="username" 
+            autocomplete="off" 
+            required />
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput 
+            type="password" 
+            placeholder="password" 
+            formControlName="password" 
+            autocomplete="off"
+            required />
+          </mat-form-field>
+          <button class="m-3" mat-flat-button (click)="login()" color="accent">Envoyer</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
