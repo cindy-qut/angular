@@ -5,16 +5,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule, MatButtonModule, MatToolbarModule, MatSidenavModule,
-         MatInputModule, MatAutocompleteModule, MatListModule, MatMenuModule, } from '@angular/material';
+         MatInputModule, MatAutocompleteModule, MatListModule, MatMenuModule, MatCardModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatGridListModule} from '@angular/material/grid-list';
 import { OeuvresComponent } from './page/oeuvres/oeuvres.component';
 import { TypesComponent } from './page/types/types.component';
+import { LoginComponent } from './page/login/login.component';
 
 
 const appRoutes: Routes = [
   { path: 'oeuvres', component: OeuvresComponent, data : { title: 'oeuvres_list' } },
   { path: 'types', component: TypesComponent, data : { title: 'Types_list' } },
+  { path: 'login', component: LoginComponent, data : { title: 'Login' } },
   { path: '', redirectTo: '/oeuvres', pathMatch: 'full' },
   { path: '**', component: AppComponent }
 ];
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     OeuvresComponent,
-    TypesComponent
+    TypesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ const appRoutes: Routes = [
     MatAutocompleteModule,
     MatListModule,
     MatMenuModule,
+    MatCardModule,
     MatGridListModule,
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes)
