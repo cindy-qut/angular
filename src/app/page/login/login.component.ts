@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,11 @@ import { AuthService } from '../../service/auth.service';
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public connexionFailed: boolean;
-  constructor(private fb: FormBuilder, private auth: AuthService) { }
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
+    if (this.auth.isConnected()) {
+      this.router.navigate(['/oeuvres']);
+    }
+   }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -23,14 +28,21 @@ export class LoginComponent implements OnInit {
     const val = this.loginForm.value;
     if (val.username && val.password) {
      this.auth.login(val.username, val.password)
-     .subscribe(
-       () => {
-         console.log('CONNECTED');
+     .subscribe(() => {
+       this.auth.profile()
+       .subscribe(
+       (user) => {
+         this.router.navigate(['/oeuvres']);
        },
        (err) => {
           console.error(err);
           this.connexionFailed = true;
         });
-    }
+    },
+    (err) => {
+      console.error(err);
+      this.connexionFailed = true;
+    });
   }
+}
 }

@@ -15,6 +15,7 @@ import { TypesComponent } from './page/types/types.component';
 import { LoginComponent } from './page/login/login.component';
 import { JwtInterceptor } from './class/jwt-interceptor';
 import { ErrorInterceptor } from './class/error-interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const appRoutes: Routes = [
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatGridListModule,
     FlexLayoutModule,
+    NgbModule,
     RouterModule.forRoot(appRoutes)
     ],
   providers: [

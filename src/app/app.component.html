@@ -8,48 +8,66 @@
       </button>
     </mat-toolbar>
     <nav>
-        <mat-nav-list>
-          <a routerLink="/oeuvres" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
-            <mat-icon matListIcon>view_list</mat-icon>
-            <span>Oeuvres list</span>
-          </a>
-          <a routerLink="/types" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
-            <mat-icon matListIcon>view_list</mat-icon>
-            <span>Types list</span>
-          </a>
-        </mat-nav-list>
-      </nav>
-    <!--<div>
-      <button class="btnmenu" mat-button [matMenuTriggerFor]="menu">Menu</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Page1</button>
-        <button mat-menu-item>Page2</button>
-      </mat-menu>
-    </div>-->
+      <mat-nav-list>
+        <a routerLink="/oeuvres" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+          <mat-icon matListIcon>view_list</mat-icon>
+          <span>Oeuvres list</span>
+        </a>
+        <a routerLink="/types" routerLinkActive="active" mat-list-item (click)="sidenav.close()">
+          <mat-icon matListIcon>view_list</mat-icon>
+          <span>Types list</span>
+        </a>
+      </mat-nav-list>
+    </nav>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="accent" role="heading">
-        <button mat-button (click)="sidenav.toggle()">
+      <button mat-button (click)="sidenav.toggle()">
         <mat-icon>view_headline</mat-icon>
       </button>
       <span>{{ title }}</span>
       <span class="remaining-space"></span>
-      <span><button mat-button [matMenuTriggerFor]="menu">
+
+      <span *ngIf="!isConnected()">
+        <button mat-button [matMenuTriggerFor]="menu">
           <mat-icon class="material-icons-outlined">account_box</mat-icon>
-        </button>
+        <span>non connecté</span>
+      </button>
+        
+          <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/login" routerLinkActive="active">
+            <span>
+              <mat-icon class="material-icons-outlined">account_box</mat-icon>Se Connecter
+            </span>
+          </button>
+        </mat-menu>
+      </span>
+
+      <span *ngIf="isConnected()">
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon class="material-icons">account_box</mat-icon>
+        <span>{{ user?.username }}</span>
+      </button>
+        
         <mat-menu #menu="matMenu">
           <button mat-menu-item routerLink="/login" routerLinkActive="active">
-            <span><mat-icon class="material-icons-outlined">account_box</mat-icon>Se Connecter</span>
+            <mat-icon class="material-icons">account_box</mat-icon>
+            <span>Mon profil</span>
           </button>
-        </mat-menu></span>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon class="material-icons">close</mat-icon>
+            <span>Se Deconnecter</span>
+          </button>
+        </mat-menu>
+      </span>
     </mat-toolbar>
     <div class="container-fluid test">
-        <router-outlet></router-outlet> 
+      <router-outlet></router-outlet>
     </div>
-    
-    
-        <!--<mat-grid-list cols="4" rowHeight="100px">
+
+
+    <!--<mat-grid-list cols="4" rowHeight="100px">
             <mat-grid-tile
                 *ngFor="let tile of tiles"
                 [colspan]="tile.cols"
@@ -58,8 +76,8 @@
               {{tile.text}}
             </mat-grid-tile>
           </mat-grid-list>-->
-    
 
-    
+
+
   </mat-sidenav-content>
 </mat-sidenav-container>
