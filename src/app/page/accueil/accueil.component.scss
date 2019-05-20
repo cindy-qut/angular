@@ -1,0 +1,29 @@
+.body-accueil{
+  width: 100vw;
+  height: 100vh;
+}
+.fond-accueil{
+  position:absolute;
+  z-index:1;
+  width: 95vw;
+  height: 95vh;
+}
+.images-coverl{
+
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+.titre-accueil{
+  position:absolute;
+  width: 95vw;
+  height: 95vh;
+  z-index:2;
+  font-size:200%;
+  text-align: end;
+  top: 80vh;
+}
+.page_accueil_h1{
+  color:white;
+  size: 20vw;
+}
