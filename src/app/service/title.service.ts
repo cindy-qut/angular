@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-
 import { map, filter } from 'rxjs/operators';
-
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Globals } from '../globals';

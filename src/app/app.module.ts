@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { MatIconModule, MatButtonModule, MatToolbarModule, MatSidenavModule,
          MatInputModule, MatAutocompleteModule, MatListModule, MatMenuModule,
@@ -19,13 +18,15 @@ import { ErrorInterceptor } from './class/error-interceptor';
 import { AccueilComponent } from './page/accueil/accueil.component';
 import { GalerieComponent } from './page/galerie/galerie.component';
 import { IsSignedInGuard } from './guard/is-signed-in.guard';
-
+import { TailleComponent } from './page/taille/taille.component';
+import { TailleService } from './service/taille.service';
 
 
 
 const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate:[IsSignedInGuard], data : { title: 'accueil' } },
   { path: 'galerie', component: GalerieComponent, data : { title: 'galerie' } },
+  { path: 'taille', component: TailleComponent, data : { title: 'taille' } },
   { path: 'oeuvres', component: OeuvresComponent, data : { title: 'oeuvres_list' } },
   { path: 'types', component: TypesComponent, data : { title: 'Types_list' } },
   { path: 'login', component: LoginComponent, data : { title: 'Login' } },
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     LoginComponent,
     AccueilComponent,
     GalerieComponent,
+    TailleComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ const appRoutes: Routes = [
   providers: [
   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-  ],
+  TailleService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

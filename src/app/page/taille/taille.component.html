@@ -1,0 +1,19 @@
+<div class="container col-md-12">
+  <div class="table-responsive table-container"></div>
+  <h2> Listes des tailles</h2>
+  <table class="table table-dark table-hover table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th>Id</th>
+        <th>Dimensions</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let taille of tailles">
+        <td>{{taille.id}}</td>
+        <td>{{taille.dimensions}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

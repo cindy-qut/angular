@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public connexionFailed: boolean;
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
-    if(this.auth.isConnected()) {
-      this.router.navigate(['/home']);
+    if (this.auth.isConnected()) {
+      this.router.navigate(['/accueil']);
     }
    }
 
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       this.auth.profile()
         .subscribe(
           (user) => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/accueil']);
          },
         (err) => {
           console.error(err);
