@@ -15,11 +15,12 @@ import { TypesComponent } from './page/types/types.component';
 import { LoginComponent } from './page/login/login.component';
 import { JwtInterceptor } from './class/jwt-interceptor';
 import { ErrorInterceptor } from './class/error-interceptor';
+import { IsSignedInGuard } from './guard/is-signed-in.guard';
 import { AccueilComponent } from './page/accueil/accueil.component';
 import { GalerieComponent } from './page/galerie/galerie.component';
-import { IsSignedInGuard } from './guard/is-signed-in.guard';
 import { TailleComponent } from './page/taille/taille.component';
 import { TailleService } from './service/taille.service';
+import { TailleAddComponent } from './page/taille/taille-add/taille-add.component';
 
 
 
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate: [IsSignedInGuard], data : { title: 'accueil' } },
   { path: 'galerie', component: GalerieComponent, data : { title: 'galerie' } },
   { path: 'taille', component: TailleComponent, data : { title: 'taille' } },
+  { path: 'taille/add', component: TailleAddComponent, data : { title: 'création' } },
   { path: 'oeuvres', component: OeuvresComponent, data : { title: 'oeuvres_list' } },
   { path: 'types', component: TypesComponent, data : { title: 'Types_list' } },
   { path: 'login', component: LoginComponent, data : { title: 'Login' } },
@@ -43,6 +45,7 @@ const appRoutes: Routes = [
     AccueilComponent,
     GalerieComponent,
     TailleComponent,
+    TailleAddComponent,
   ],
   imports: [
     BrowserModule,

@@ -26,4 +26,8 @@ export class TailleComponent implements OnInit {
       this.getAllTailles();
     });
   }
+
+  createTaille() {
+    this.router.navigate(['/taille/add']);
+  }
 }
