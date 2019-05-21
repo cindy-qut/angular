@@ -21,6 +21,7 @@ import { GalerieComponent } from './page/galerie/galerie.component';
 import { TailleComponent } from './page/taille/taille.component';
 import { TailleService } from './service/taille.service';
 import { TailleAddComponent } from './page/taille/taille-add/taille-add.component';
+import { TailleEditComponent } from './page/taille/taille-edit/taille-edit.component';
 
 
 
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate: [IsSignedInGuard], data : { title: 'accueil' } },
   { path: 'galerie', component: GalerieComponent, data : { title: 'galerie' } },
   { path: 'taille', component: TailleComponent, data : { title: 'taille' } },
-  { path: 'taille/add', component: TailleAddComponent, data : { title: 'création' } },
+  { path: 'taille/add', component: TailleAddComponent, data : { title: 'addTaille' } },
+  { path: 'taille/edit/:id', component: TailleEditComponent, data : { title: 'editTaille' } },
   { path: 'oeuvres', component: OeuvresComponent, data : { title: 'oeuvres_list' } },
   { path: 'types', component: TypesComponent, data : { title: 'Types_list' } },
   { path: 'login', component: LoginComponent, data : { title: 'Login' } },
@@ -46,6 +48,7 @@ const appRoutes: Routes = [
     GalerieComponent,
     TailleComponent,
     TailleAddComponent,
+    TailleEditComponent,
   ],
   imports: [
     BrowserModule,

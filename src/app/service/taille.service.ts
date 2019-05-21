@@ -29,5 +29,14 @@ export class TailleService {
   const data = {dimensions};
   return this.http.post(Globals.APP_API + 'taille' + '/' + 'new', data );
   }
+
+  getTaille(id: string) {
+  return this.http.get(Globals.APP_API + 'taille' + '/' + id);
+  }
+
+  editTaille(id: number, dimensions: string) {
+  const data = {dimensions};
+  return this.http.put(Globals.APP_API + 'taille' + '/' + id, data );
+  }
 }
 
