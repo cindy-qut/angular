@@ -24,7 +24,7 @@ import { TailleService } from './service/taille.service';
 
 
 const appRoutes: Routes = [
-  { path: 'accueil', component: AccueilComponent, canActivate:[IsSignedInGuard], data : { title: 'accueil' } },
+  { path: 'accueil', component: AccueilComponent, canActivate: [IsSignedInGuard], data : { title: 'accueil' } },
   { path: 'galerie', component: GalerieComponent, data : { title: 'galerie' } },
   { path: 'taille', component: TailleComponent, data : { title: 'taille' } },
   { path: 'oeuvres', component: OeuvresComponent, data : { title: 'oeuvres_list' } },

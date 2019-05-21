@@ -15,5 +15,13 @@ export class TailleService {
   getAllTailles() {
     return this.http.get<Taille[]>(Globals.APP_API + 'taille');
   }
+
+  getTailleById(id: number) {
+    return this.http.get(Globals.APP_API + 'taille' + '/' + id);
+  }
+
+  deleteTaille(id: number) {
+    return this.http.delete(Globals.APP_API + 'taille' + '/' + id);
+  }
 }
 
