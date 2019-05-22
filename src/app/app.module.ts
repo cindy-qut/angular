@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MatIconModule, MatButtonModule, MatToolbarModule, MatSidenavModule,
          MatInputModule, MatAutocompleteModule, MatListModule, MatMenuModule,
-         MatCardModule, MatFormFieldModule, MatExpansionModule, MatCheckboxModule } from '@angular/material';
+         MatCardModule, MatFormFieldModule, MatExpansionModule, MatCheckboxModule, MatProgressSpinnerModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatGridListModule} from '@angular/material/grid-list';
 import { OeuvresComponent } from './page/oeuvres/oeuvres.component';
@@ -69,6 +69,7 @@ const appRoutes: Routes = [
     MatGridListModule,
     MatExpansionModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes)
     ],

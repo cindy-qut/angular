@@ -12,8 +12,9 @@ import { Taille } from '../../../class/taille';
 
 export class TailleEditComponent implements OnInit {
 
-  public tailleForm: FormGroup;
+  tailleForm: FormGroup;
   taille: Taille;
+  loading: boolean;
 
   constructor(private fb: FormBuilder,
               private tailleService: TailleService,
@@ -21,6 +22,7 @@ export class TailleEditComponent implements OnInit {
               private activatedRouter: ActivatedRoute) { }
 
   ngOnInit() {
+    this.loading = true;
     this.tailleForm = this.fb.group({
       dimensions : ['', Validators.required]
     });
@@ -29,6 +31,7 @@ export class TailleEditComponent implements OnInit {
       this.tailleService.getTaille(params.id)
       .subscribe((taille: Taille) => {
         this.createForm(taille);
+        this.loading = false;
       });
     });
   }
@@ -39,17 +42,16 @@ export class TailleEditComponent implements OnInit {
       dimensions : taille.dimensions
     });
   }
+  backClicked() {
+    this.router.navigate(['/taille']);
+  }
 
   saveTaille() {
     const val = this.tailleForm.value;
     this.tailleService.editTaille(this.taille.id, val.dimensions)
     .subscribe((taille: Taille) => {
       this.createForm(taille);
+      this.backClicked();
     });
-    this.backclicked();
-  }
-
-  backclicked() {
-    this.router.navigate(['/taille/']);
   }
 }
